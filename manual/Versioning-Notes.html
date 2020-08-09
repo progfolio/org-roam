@@ -15,18 +15,18 @@ General Public License for more details.
 <!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Garbage Collection (Org-roam User Manual)</title>
+<title>Versioning Notes (Org-roam User Manual)</title>
 
-<meta name="description" content="Garbage Collection (Org-roam User Manual)">
-<meta name="keywords" content="Garbage Collection (Org-roam User Manual)">
+<meta name="description" content="Versioning Notes (Org-roam User Manual)">
+<meta name="keywords" content="Versioning Notes (Org-roam User Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Performance-Optimization.html#Performance-Optimization" rel="up" title="Performance Optimization">
-<link href="Appendix.html#Appendix" rel="next" title="Appendix">
-<link href="Profiling-Key-Operations.html#Profiling-Key-Operations" rel="prev" title="Profiling Key Operations">
+<link href="Ecosystem.html#Ecosystem" rel="up" title="Ecosystem">
+<link href="Full_002dtext-search-interface-with-Deft.html#Full_002dtext-search-interface-with-Deft" rel="next" title="Full-text search interface with Deft">
+<link href="Browsing-History-with-winner_002dmode.html#Browsing-History-with-winner_002dmode" rel="prev" title="Browsing History with winner-mode">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
@@ -60,27 +60,24 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<a name="Garbage-Collection"></a>
+<a name="Versioning-Notes"></a>
 <div class="header">
 <p>
-Previous: <a href="Profiling-Key-Operations.html#Profiling-Key-Operations" accesskey="p" rel="prev">Profiling Key Operations</a>, Up: <a href="Performance-Optimization.html#Performance-Optimization" accesskey="u" rel="up">Performance Optimization</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="Full_002dtext-search-interface-with-Deft.html#Full_002dtext-search-interface-with-Deft" accesskey="n" rel="next">Full-text search interface with Deft</a>, Previous: <a href="Browsing-History-with-winner_002dmode.html#Browsing-History-with-winner_002dmode" accesskey="p" rel="prev">Browsing History with winner-mode</a>, Up: <a href="Ecosystem.html#Ecosystem" accesskey="u" rel="up">Ecosystem</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <hr>
-<a name="Garbage-Collection-1"></a>
-<h3 class="section">16.2 Garbage Collection</h3>
+<a name="Versioning-Notes-1"></a>
+<h4 class="subsection">17.2.2 Versioning Notes</h4>
 
-<p>During the cache-build process, Org-roam generates a lot of in-memory
-data-structures (such as the Org file&rsquo;s AST), which are discarded after use. These structures are garbage collected at regular intervals (see <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html#Garbage-Collection">(elisp)info:elisp#Garbage Collection</a>).
+<p>Since Org-roam notes are just plain text, it is trivial to track changes in your
+notes database using version control systems such as <a href="https://git-scm.com/">Git</a>. Simply initialize
+<code>org-roam-directory</code> as a Git repository, and commit your files at regular or
+appropriate intervals. <a href="https://magit.vc/">Magit</a> is a great interface to Git within Emacs.
 </p>
-<p>Org-roam provides the option <code>org-roam-db-gc-threshold</code> to temporarily change
-the threshold value for GC to be triggered during these memory-intensive
-operations. To reduce the number of garbage collection processes, one may set
-<code>org-roam-db-gc-threshold</code> to a high value (such as <code>most-positive-fixnum</code>):
+<p>In addition, it may be useful to observe how a particular note has evolved, by
+looking at the file history. <a href="https://gitlab.com/pidu/git-timemachine">Git-timemachine</a> allows you to visit historic
+versions of a tracked Org-roam note.
 </p>
-<div class="lisp">
-<pre class="lisp">(setq org-roam-db-gc-threshold most-positive-fixnum)
-</pre></div>
-
 
 
 
