@@ -196,7 +196,7 @@ the Org-roam buffer."
         (org-roam-buffer-persistent-redisplay)))))
 
 (define-inline org-roam-buffer--visibility ()
-  "Return whether the current visibility state of the org-roam buffer.
+  "Return whether the current visibility state of the `org-roam' buffer.
 Valid states are 'visible, 'exists and 'none."
   (declare (side-effect-free t))
   (inline-quote

@@ -831,7 +831,7 @@ If the property is already set, it's value is replaced."
     (seq-uniq (append roam-tags org-tags))))
 
 (defun org-roam-tag-add (tag)
-  "Add a tag to the node at point."
+  "Add a TAG to the node at point."
   (interactive
    (list (completing-read "Tag: " (org-roam-tag-completions))))
   (let ((node (org-roam-node-at-point 'assert)))
