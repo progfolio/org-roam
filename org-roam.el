@@ -245,7 +245,8 @@ space-delimited strings.
   :group 'org-roam)
 
 (defcustom org-roam-enable-headline-linking t
-  "Enable linking to headlines, which includes automatic :ID: creation and scanning of :ID:s for org-roam database."
+  "Enable linking to headlines.
+This includes automatic :ID: creation and scanning of :ID:s in the database."
   :type 'boolean
   :group 'org-roam)
 
@@ -281,7 +282,8 @@ descriptive warnings when certain operations fail (e.g. parsing).")
   "Timer for updating the database on file changes.")
 
 (defvar org-roam--file-update-queue nil
-  "List of files that need to be processed for a database update. Processed within `org-roam--file-update-timer'.")
+  "List of files that need to be processed for a database update.
+Processed within `org-roam--file-update-timer'.")
 
 ;;;; Utilities
 (defun org-roam--plist-to-alist (plist)
@@ -1564,7 +1566,7 @@ This mode sets up several hooks, to ensure that the cache is updated on file
 changes, renames and deletes. It is also in charge of graceful termination of
 the database connection.
 
-When called interactively, toggle `org-roam-mode'. with prefix
+When called interactively, toggle `org-roam-mode'. With prefix
 ARG, enable `org-roam-mode' if ARG is positive, otherwise disable
 it.
 

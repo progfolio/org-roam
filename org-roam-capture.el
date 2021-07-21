@@ -230,7 +230,7 @@ Template string   :\n%v")
      :head "#+title: ${title}\n#+roam_key: ${ref}\n"
      :unnarrowed t))
   "The Org-roam templates used during a capture from the roam-ref protocol.
-Details on how to specify for the template is given in `org-roam-capture-templates'."
+Template specification details are given in `org-roam-capture-templates'."
   :group 'org-roam
   ;; Adapted from `org-capture-templates'
   :type

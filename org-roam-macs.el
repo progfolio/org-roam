@@ -35,7 +35,11 @@
 ;;;; Library Requires
 (require 'dash)
 
+(declare-function org-in-regexp "org-macs" (regexp &optional nlines visually))
+(declare-function org-roam-link-make-string "org-roam-compat")
+(declare-function s-replace "s" (old new s))
 (defvar org-roam-verbose)
+(defvar org-link-bracket-re nil) ;defined in ol.el
 
 ;;;; Utility Functions
 (defun org-roam--list-interleave (lst separator)
@@ -56,6 +60,7 @@ If FILE, set `org-roam-temp-file-name' to file and insert its contents."
        (with-temp-buffer
          (let ((org-roam-directory ,current-org-roam-directory)
                (org-mode-hook nil))
+           (ignore org-mode-hook)
            (org-mode)
            (when ,file
              (insert-file-contents ,file)
@@ -88,9 +93,7 @@ If DESC, also replace the desc"
 
 ;;; Shielding regions
 (defun org-roam-shield-region (beg end)
-  "Shield REGION against modifications.
-REGION must be a cons-cell containing the marker to the region
-beginning and maximum values."
+  "Shield region between BEG and END against modifications."
   (when (and beg end)
     (add-text-properties beg end
                            '(font-lock-face org-roam-link-shielded
@@ -99,7 +102,7 @@ beginning and maximum values."
     (cons beg end)))
 
 (defun org-roam-unshield-region (beg end)
-  "Unshield the shielded REGION."
+  "Unshield the shielded region between BEG and END."
   (when (and beg end)
     (let ((inhibit-read-only t))
       (remove-text-properties beg end

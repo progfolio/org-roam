@@ -44,7 +44,7 @@
 
 ;;;; Options
 (defcustom org-roam-graph-viewer (executable-find "firefox")
-  "Method to view the org-roam graph.
+  "Method to view the `org-roam' graph.
 It may be one of the following:
   - a string representing the path to the executable for viewing the graph.
   - a function accepting a single argument: the graph file path.
